@@ -1,4 +1,4 @@
-N = 15
+N = 16
 
 SRC = ./src/nQueens.c
 SRC_OPENMP = ./src/nQueens_openmp.c

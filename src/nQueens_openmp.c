@@ -83,8 +83,9 @@ int main(int argc, char **argv) {
     #pragma omp parallel
     {
         int local_counter = 0;
+        int i;
         #pragma omp for schedule(static)
-        for(int i = 0; i < N; i++) {
+        for(i = 0; i < N; i++) {
             SolveProblem(N, i, &local_counter);
         }
         

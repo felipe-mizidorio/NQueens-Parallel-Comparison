@@ -67,8 +67,9 @@ void SolveProblem(int n, int col_start, int *local_counter) {
 void *thread_function(void *arg) {
     thread_data *data = (thread_data *)arg;
     int local_counter = 0;
+    int i;
 
-    for(int i = data->start_col; i < N; i += NUM_THREADS) {
+    for(i = data->start_col; i < N; i += NUM_THREADS) {
         SolveProblem(N, i, &local_counter);
     }
 
@@ -90,13 +91,14 @@ int main(int argc, char **argv) {
     pthread_t threads[NUM_THREADS];
     thread_data thread_data_array[NUM_THREADS];
     pthread_mutex_init(&mutex, NULL);
+    int i;
 
-    for(int i = 0; i < NUM_THREADS; i++) {
+    for(i = 0; i < NUM_THREADS; i++) {
         thread_data_array[i].start_col = i;
         pthread_create(&threads[i], NULL, thread_function, (void *)&thread_data_array[i]);
     }
 
-    for (int i = 0; i < NUM_THREADS; i++) {
+    for(i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
 

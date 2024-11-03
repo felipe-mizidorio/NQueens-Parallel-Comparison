@@ -9,7 +9,7 @@
 # include <time.h>
 
 #define MAX 100 //Could this value be a problem for larger size of N?
-#define output 1 //Comment this line to only collect the execution time
+// #define output 1 //Comment this line to only collect the execution time
 
 typedef struct {
     int x, y;

@@ -9,7 +9,7 @@
 # include <time.h>
 
 #define MAX 100 //Could this value be a problem for larger size of N?
-//#define output 1 //Comment this line to only collect the execution time
+#define output 1 //Comment this line to only collect the execution time
 
 typedef struct {
     int x, y;
@@ -21,7 +21,7 @@ void SolveProblem(int n) {
     int counter1, counter2 = -1, counter3 = -1;
     static int counter = 0;
     int d[MAX][3] = {0};
-    int *stack2 = (int *)malloc(n*sizeof(int));;
+    int *stack2 = (int *)malloc(n*sizeof(int));
     position Position1, Position2, Position3;
     position *head1 = (position *)malloc(n*n*sizeof(position));
     for(counter1 = n-1; counter1 >= 0; counter1--){

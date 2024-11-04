@@ -1,5 +1,3 @@
-N = 16
-
 SRC = ./src/nQueens.c
 SRC_OPENMP = ./src/nQueens_openmp.c
 SRC_PTHREADS = ./src/nQueens_pthreads.c
@@ -22,16 +20,15 @@ $(EXEC_OPENMP): $(SRC_OPENMP)
 $(EXEC_PTHREADS): $(SRC_PTHREADS)
 	$(CC) $(CFLAGS) -o $(EXEC_PTHREADS) $(SRC_PTHREADS)
 
-run: $(EXEC)
-	./$(EXEC) $(N)
+compile: $(EXEC)
 
-run_openmp: $(EXEC_OPENMP)
-	./$(EXEC_OPENMP) $(N)
+compile_openmp: $(EXEC_OPENMP)
 
-run_pthreads: $(EXEC_PTHREADS)
-	./$(EXEC_PTHREADS) $(N)
+compile_pthreads: $(EXEC_PTHREADS)
+
+compile_all: compile compile_openmp compile_pthreads
 
 clean:
 	rm -f $(EXEC) $(EXEC_OPENMP) $(EXEC_PTHREADS)
 
-.PHONY: all run run_openmp run_pthreads clean
+.PHONY: all compile compile_openmp compile_pthreads clean

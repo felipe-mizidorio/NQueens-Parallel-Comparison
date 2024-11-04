@@ -23,13 +23,13 @@ $(EXEC_PTHREADS): $(SRC_PTHREADS)
 	$(CC) $(CFLAGS) -o $(EXEC_PTHREADS) $(SRC_PTHREADS)
 
 run: $(EXEC)
-	/usr/bin/time -f "\nTempo real: %e\nTempo de usuário: %U\nTempo de sistema: %S\n" ./$(EXEC) $(N)
+	./$(EXEC) $(N)
 
 run_openmp: $(EXEC_OPENMP)
-	/usr/bin/time -f "\nTempo real: %e\nTempo de usuário: %U\nTempo de sistema: %S\n" ./$(EXEC_OPENMP) $(N)
+	./$(EXEC_OPENMP) $(N)
 
 run_pthreads: $(EXEC_PTHREADS)
-	/usr/bin/time -f "\nTempo real: %e\nTempo de usuário: %U\nTempo de sistema: %S\n" ./$(EXEC_PTHREADS) $(N)
+	./$(EXEC_PTHREADS) $(N)
 
 clean:
 	rm -f $(EXEC) $(EXEC_OPENMP) $(EXEC_PTHREADS)
